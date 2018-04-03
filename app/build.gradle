@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.objectbox'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+}
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "dagger2.retofit.rxjava.mvp.mvprxjavaretrofitdagger2objectbox"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "int", "LIMIT", "100"
+        buildConfigField "String", "BASEURL", "\"http://api.giphy.com\""
+        buildConfigField "int", "CACHETIME", "432000" // 5days
+        buildConfigField "String", "APIKEY", "\"JK0aW0apO7uczAp1LM2sBSInPmEeI0LE\"" // api-key
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.3.1'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'com.google.dagger:dagger:2.5'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.5'
+    provided 'javax.annotation:jsr250-api:1.0'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'com.google.android.exoplayer:exoplayer:r2.4.0'
+    implementation 'com.google.android.exoplayer:exoplayer-core:r2.4.0'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:r2.4.0'
+    implementation 'com.google.android.exoplayer:exoplayer-hls:r2.4.0'
+    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:r2.4.0'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:r2.4.0'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+}

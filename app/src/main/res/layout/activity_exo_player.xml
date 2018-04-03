@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+        android:id="@+id/exo_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layLike">
+
+    </com.google.android.exoplayer2.ui.SimpleExoPlayerView>
+
+    <LinearLayout
+        android:id="@+id/layLike"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <RelativeLayout
+            android:id="@+id/layLikeCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvLikeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="0" />
+
+            <TextView
+                android:id="@+id/tvLike"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_toRightOf="@+id/tvLikeCount"
+                android:gravity="center"
+                android:text="Like"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/layDisLikeCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tvDisLikeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="0" />
+
+            <TextView
+                android:id="@+id/tvDisLike"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_toRightOf="@+id/tvDisLikeCount"
+                android:gravity="center"
+                android:text="DisLike"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
